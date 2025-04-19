@@ -1,5 +1,7 @@
 const express = require("express");
+const dotenv = require("dotenv");
 
+dotenv.config();
 const app = express();
 
 app.get("/api/health", (req, res) => {
@@ -20,4 +22,9 @@ app.get("/api/home", (req, res) => {
 app.get("/api/test", (req, res) => {
   return res.status(200).send(`<h1>Tested after git commit</h1`);
 });
-app.listen(8000, () => console.log("Server Running"));
+app.get("/api/user", (req, res) => {
+  return res.status(200).json({ name: process.env.NAME });
+});
+app.listen(process.env.PORT, () =>
+  console.log("Server Running at ", process.env.PORT)
+);
