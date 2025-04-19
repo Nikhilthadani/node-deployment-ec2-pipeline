@@ -8,6 +8,16 @@ app.get("/api/health", (req, res) => {
 app.get("/api/home", (req, res) => {
   return res
     .status(200)
+    .send(`<h1>Welcome to the deployed app!!! With ACTIONS!!!!</h1`);
+});
+
+app.get("/api/home", (req, res) => {
+  return res
+    .status(200)
     .send(`<h1>Welcome to the deployed app!!! With ACTIONS!!!</h1`);
+});
+
+app.get("/api/test", (req, res) => {
+  return res.status(200).send(`<h1>Tested after git commit</h1`);
 });
 app.listen(8000, () => console.log("Server Running"));
